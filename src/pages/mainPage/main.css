@@ -1,0 +1,102 @@
+.mainPage{   
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right top, #f52e48, #f73747, #f93f46, #fa4645, #fc4d44);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding-top: 1.25rem;
+}
+.mainPage .headerMain{
+    width: 90%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+.mainPage .headerMain svg{
+    font-size: 24px;
+}
+.mainPage .mainContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3.125rem;
+}
+
+.mainPage .mainContent h1{
+    font-size: 14.6px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: Roboto, 'sans-serif';
+}
+.mainPage .mainContent .boxCronometro{
+    position: relative;
+}
+.mainPage .mainContent .boxCronometro .cronometro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 17.5rem;
+    height: 17.5rem;
+    margin-top: 1.875rem;
+}
+.mainPage .mainContent .boxCronometro .cronometro svg{
+    width: 300px;
+    height: 300px
+}
+.mainPage .mainContent .boxCronometro .cronometro svg circle{
+    width: 280px;
+    height: 280px;
+    transform: translateY(50%)translateX(50%);
+    fill: none;
+    stroke-width: 8px;
+    stroke-dasharray: 754;
+
+}
+.mainPage .mainContent .boxCronometro .cronometro svg circle:nth-child(1){
+    stroke-dashoffset: 0;
+    stroke:#ff9c9f ;
+}
+.mainPage .mainContent .boxCronometro .cronometro svg circle:nth-child(2){
+    stroke-dashoffset: calc(754 - 652.8);
+    stroke:white ;
+    transition: stroke-dashoffset 0.8s;
+}
+.mainPage .mainContent .boxCronometro .numTempo{
+    color: white;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 46%;
+    left: 0;
+}
+.mainPage .mainContent .boxCronometro .numTempo h2 {
+    font-size: 2.5rem;
+}
+.mainPage .btn{
+    width: 7.5rem;
+    height: 2.5rem;
+    border-radius: 0.9375rem;
+    margin-top: 1.25rem;
+    color: #F73A46;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border: 0.125rem solid #F73A46;
+    font-size: 1.0625rem;
+}
+.mainPage .btn:hover{
+    background-color: #F73A46;
+    border: 0.125rem solid white;
+    color: white;
+}
+.mainPage .btn:target{
+    background-color: #F73A46;
+    color: white;
+}
