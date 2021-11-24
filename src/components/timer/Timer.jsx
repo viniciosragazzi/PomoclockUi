@@ -38,6 +38,7 @@ export default function Timer() {
     }
   }
   return (
+    <>
     <div className="boxCronometro">
       <div className="cronometro">
         <svg>
@@ -51,5 +52,10 @@ export default function Timer() {
         </h2>
       </div>
     </div>
+    <button className="btn" onClick={click}>
+    {lb}
+    </button>
+  </>
   );
+  
 }
