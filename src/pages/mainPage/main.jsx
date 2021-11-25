@@ -2,9 +2,9 @@ import React from "react";
 import "./main.css";
 import { AiOutlineSetting } from "react-icons/ai";
 import { BsDiagram3 } from "react-icons/bs";
-import Timer from "../../components/timer/Timer";
+import Timer from "../../components/Timer";
+
 export default function Main() {
- 
   return (
     <div className="mainPage">
       <div className="headerMain">
@@ -13,7 +13,7 @@ export default function Main() {
       </div>
       <div className="mainContent">
         <h1>Mantenha o foco</h1>
-        <Timer/>
+        <Timer />
       </div>
     </div>
   );
