@@ -1,33 +1,59 @@
 import React, { useState, useEffect } from "react";
+import { Circulo } from "../../pages/mainPage/mainStyle";
+import { connect } from "react-redux";
+// import { Container } from './styles';
+function changeState(contador) {
+  return {
+    type: "INCREMENT",
+    contador,
 
-export default function Timer() {
+  };
+}
+
+function Timer({ contador, ativar }) {
   const [minutes, setMinutes] = useState(20);
   const [seconds, setSeconds] = useState(0);
   const [running, setRunning] = useState(false);
+  const [barra, setBarra] = useState(60 * minutes);
+  const [conversao, setConversao] = useState(60*20);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((oldState) => oldState - 1);
+      setBarra((oldState) => oldState - 1);
       if (seconds === 0 && minutes >= 1) {
         setSeconds(59);
         setMinutes((oldState) => oldState - 1);
+        
       }
     }, 1000);
 
     if (!running) {
-      setSeconds(0);
-      setMinutes(20);
+      if ((contador%2)!==0) {
+        setMinutes(5);
+        setConversao(60 * 5);
+        setSeconds(0);
+        setBarra(60 * minutes);
+      
+      }
+      if ((contador%2)===0) {
+        setMinutes(20);
+        setConversao(60 * 20);
+        setSeconds(0);
+        setBarra(60 * minutes);
+ 
+      }
       clearInterval(interval);
     }
     if (minutes === 0 && seconds === 0) {
       clearInterval(interval);
+      ativar(contador);
+
       setRunning(false);
-      setSeconds(0);
-      setMinutes(20);
     }
 
     return () => clearInterval(interval);
-  }, [minutes, seconds, running]);
+  }, [minutes, seconds, running, barra]);
 
   return (
     <>
@@ -35,7 +61,10 @@ export default function Timer() {
         <div className="cronometro">
           <svg>
             <circle r="120"></circle>
-            <circle r="120"></circle>
+            <Circulo
+              mnt={(754 * ((barra * 100) / conversao)) / 100}
+              r="120"
+            ></Circulo>
           </svg>
         </div>
         <div className="numTempo">
@@ -54,3 +83,12 @@ export default function Timer() {
     </>
   );
 }
+
+const stateToProps = (state) => ({
+  contador: state.contador,
+
+});
+const dispatchActive = (dispatch) => ({
+  ativar: (contador) => dispatch(changeState(contador)),
+});
+export default connect(stateToProps, dispatchActive)(Timer);

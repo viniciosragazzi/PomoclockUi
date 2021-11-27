@@ -1,23 +1,26 @@
-.mainPage{   
+import styled from 'styled-components'
+
+export const MainPage = styled.div` 
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(to right top, #f52e48, #f73747, #f93f46, #fa4645, #fc4d44);
+    background-image: linear-gradient(${props => (`${props.contador}`% 2) === 0  ? 'to right top,#f52e48,#f73747,#f93f46,#fa4645,#fc4d44' : 'to right top, #17be2c, #23c226, #2dc71e, #36cb13, #3fcf00'  });
     display: flex;
     flex-direction: column;
     align-items: center;
     color: white;
     padding-top: 1.25rem;
-}
-.mainPage .headerMain{
+    transition: all .5s ease-in-out;
+
+ .headerMain{
     width: 90%;
     height: 2.5rem;
     display: flex;
     justify-content: space-between;
 }
-.mainPage .headerMain svg{
+ .headerMain svg{
     font-size: 24px;
 }
-.mainPage .mainContent{
+ .mainContent{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -26,16 +29,15 @@
     margin-top: 3.125rem;
 }
 
-.mainPage .mainContent h1{
+ .mainContent h1{
     font-size: 14.6px;
     font-weight: 400;
-    text-transform: uppercase;
     font-family: Roboto, 'sans-serif';
 }
-.mainPage .mainContent .boxCronometro{
+ .mainContent .boxCronometro{
     position: relative;
 }
-.mainPage .mainContent .boxCronometro .cronometro{
+ .mainContent .boxCronometro .cronometro{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -45,11 +47,11 @@
     height: 17.5rem;
     margin-top: 1.875rem;
 }
-.mainPage .mainContent .boxCronometro .cronometro svg{
+ .mainContent .boxCronometro .cronometro svg{
     width: 300px;
     height: 300px
 }
-.mainPage .mainContent .boxCronometro .cronometro svg circle{
+ .mainContent .boxCronometro .cronometro svg circle{
     width: 280px;
     height: 280px;
     transform: translateY(50%)translateX(50%);
@@ -58,16 +60,12 @@
     stroke-dasharray: 754;
 
 }
-.mainPage .mainContent .boxCronometro .cronometro svg circle:nth-child(1){
+ .mainContent .boxCronometro .cronometro svg circle:nth-child(1){
     stroke-dashoffset: 0;
-    stroke:#ff9c9f ;
+    stroke:#0808086f ;
 }
-.mainPage .mainContent .boxCronometro .cronometro svg circle:nth-child(2){
-    stroke-dashoffset: calc(754 - 652.8);
-    stroke:white ;
-    transition: stroke-dashoffset 0.8s;
-}
-.mainPage .mainContent .boxCronometro .numTempo{
+
+ .mainContent .boxCronometro .numTempo{
     color: white;
     width: 100%;
     display: flex;
@@ -76,27 +74,35 @@
     top: 43%;
     left: 0;
 }
-.mainPage .mainContent .boxCronometro .numTempo h2 {
+ .mainContent .boxCronometro .numTempo h2 {
     font-size: 3.5rem;
 }
-.mainPage .btn{
+ .btn{
     width: 7.5rem;
     height: 2.5rem;
     border-radius: 0.9375rem;
     margin-top: 1.25rem;
-    color: #F73A46;
+    color: ${props => (`${props.contador}`% 2) === 0  ? '#F73A46' : '#17be2c'  };
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    border: 0.125rem solid #F73A46;
+    border: 0.125rem solid ${props => (`${props.contador}`% 2) === 0  ? '#F73A46' : '#17be2c'  };;
     font-size: 1.0625rem;
 }
-.mainPage .btn:hover{
-    background-color: #F73A46;
+ .btn:hover{
+    background-image:  linear-gradient(${props => (`${props.contador}`% 2) === 0  ? 'to right top,#f52e48,#f73747,#f93f46,#fa4645,#fc4d44' : 'to right top, #17be2c, #23c226, #2dc71e, #36cb13, #3fcf00'  });
     border: 0.125rem solid white;
     color: white;
 }
-.mainPage .btn:target{
+ .btn:target{
     background-color: #F73A46;
     color: white;
 }
+
+` 
+
+export const Circulo = styled.circle` 
+    stroke-dashoffset: calc(754 - ${props => `${props.mnt}`});
+    stroke:white ;
+    transition: stroke-dashoffset 0.8s;
+`
