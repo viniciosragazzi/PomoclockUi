@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Circulo } from "../../pages/mainPage/mainStyle";
 import { connect } from "react-redux";
+import relogio from './relogio.mp3'
 // import { Container } from './styles';
 function changeState(contador) {
   return {
@@ -16,7 +17,7 @@ function Timer({ contador, ativar }) {
   const [running, setRunning] = useState(false);
   const [barra, setBarra] = useState(60 * minutes);
   const [conversao, setConversao] = useState(60*20);
-
+  const relogioAudio = new Audio(relogio)
   useEffect(() => {
     const interval = setInterval(() => {
       setSeconds((oldState) => oldState - 1);
@@ -24,7 +25,12 @@ function Timer({ contador, ativar }) {
       if (seconds === 0 && minutes >= 1) {
         setSeconds(59);
         setMinutes((oldState) => oldState - 1);
-        
+      }
+      if(running === true ){
+        if(minutes < 21){
+          relogioAudio.play()
+          relogioAudio.volume = 0.3;
+        }
       }
     }, 1000);
 

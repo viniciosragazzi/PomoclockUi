@@ -16,6 +16,11 @@ export const MainPage = styled.div`
     height: 2.5rem;
     display: flex;
     justify-content: space-between;
+    transition: all .5s ease-in-out;
+    animation: fadein 1.4s;
+    -moz-animation: fadein 1.4s; /* Firefox */
+    -webkit-animation: fadein 1.4s; /* Safari and Chrome */
+    -o-animation: fadein 1.4s; /* Opera */
 }
  .headerMain svg{
     font-size: 24px;
@@ -27,12 +32,17 @@ export const MainPage = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 3.125rem;
+    animation: fadein 1.4s;
+    -moz-animation: fadein 1.4s; /* Firefox */
+    -webkit-animation: fadein 1.4s; /* Safari and Chrome */
+    -o-animation: fadein 1.4s; /* Opera */
 }
 
  .mainContent h1{
     font-size: 14.6px;
     font-weight: 400;
     font-family: Roboto, 'sans-serif';
+    
 }
  .mainContent .boxCronometro{
     position: relative;
@@ -97,6 +107,39 @@ export const MainPage = styled.div`
  .btn:target{
     background-color: #F73A46;
     color: white;
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 ` 

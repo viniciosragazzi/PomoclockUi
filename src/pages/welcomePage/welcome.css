@@ -7,11 +7,18 @@
     justify-content: center;
     align-items: center;
     color: white;
+   
 }
 .welcomePage h1{
     font-size:44.8px;
+   
 }
-
+.welcomePage p, h1, .btn,svg{
+    animation: fadein 2s;
+    -moz-animation: fadein 2s; /* Firefox */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+    -o-animation: fadein 2s; /* Opera */
+}
 .welcomePage .btn{
     width: 7.5rem;
     height: 2.5rem;
@@ -23,6 +30,7 @@
     transition: 0.3s ease-in-out;
     border: 0.125rem solid #F73A46;
     font-size: 0.875rem;
+   
 }
 .welcomePage .btn:hover{
     background-color: #F73A46;
@@ -35,4 +43,37 @@
 }
 .welcomePage svg{
     font-size: 56px;
+   
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
