@@ -84,7 +84,7 @@ function Timer({ contador, ativar }) {
         className="btn"
         onClick={() => setRunning((oldState) => !oldState)}
       >
-        {running ? "Reiniciar" : "Iniciar"}
+        {running ? "Reiniciar" : "Iniciar"} 
       </button>
     </>
   );
